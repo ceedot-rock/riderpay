@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/ceedot-rock/riderpay/security/advisories/new
+    about: Report privately. Do not open a public issue.
+  - name: Integration help
+    url: mailto:corey@slidphilabs.com
+    about: Questions about integrating with RiderPay.
