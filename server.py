@@ -24,6 +24,23 @@ POLICY = policy_mod.SpendingPolicy(
 _spent_today: dict = {}
 
 
+@app.get("/api")
+def api_about():
+    return jsonify({
+        "service": "riderpay",
+        "about": "Agentic PayPal sandbox payments: signed Rider credential, "
+                 "integer-cents math, spending policy, HMAC-signed receipts.",
+        "sandbox": "sandbox" in paypal_client.BASE_URL,
+        "endpoints": [
+            {"method": "GET",  "path": "/api",          "description": "this service/about/endpoints document"},
+            {"method": "GET",  "path": "/healthz",      "description": "liveness probe"},
+            {"method": "GET",  "path": "/",             "description": "demo UI"},
+            {"method": "POST", "path": "/api/pay",     "description": "instruction + credential -> PayPal order + approval URL"},
+            {"method": "POST", "path": "/api/capture", "description": "capture order -> HMAC-signed receipt"},
+        ],
+    })
+
+
 @app.get("/healthz")
 def healthz():
     return jsonify({"ok": True, "sandbox": "sandbox" in paypal_client.BASE_URL})

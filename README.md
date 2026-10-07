@@ -1,3 +1,5 @@
+[![Audited checks](https://github.com/ceedot-rock/riderpay/actions/workflows/audited-checks.yml/badge.svg)](https://github.com/ceedot-rock/riderpay/actions/workflows/audited-checks.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # RiderPay — the agent that can pay
 
 PayPal AI Hackathon entry ("Build What's Next with PayPal and AI").
@@ -61,6 +63,7 @@ static/index.html ── demo UI (no external deps)
 
 ## API
 
+- `GET /api` → service/about/endpoints JSON.
 - `POST /api/pay` `{instruction, credential}` →
   `{status: "awaiting_approval", order_id, approve_url, amount, ...}` or
   `{status: "refused", reason}`.
